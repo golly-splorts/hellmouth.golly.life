@@ -157,60 +157,132 @@ var mapsApiUrl = 'https://maps.golly.life';
   </div>
 </div>
 
+<template id="finished-game-template">
+        <!-- finished game template -->
+        <div class="card text-white game-card finished-game-card">
+          <div class="card-body game-card-body finished-game-card-body">
 
-<div class="container" id="container-maps">
+            <div class="game-card-team1 finished-game-card-team1">
+              <table width="100%">
+                <tr>
+                  <td> 
+                    <h6 class="game-card-team-name-header">
+                      <span class="team1color team1name">Team 1</span> <small><span class="team1color team1record">(W-L)</span></small>
+                    </h6>
+                  </td>
+                  <td align="right">
+                    <h6 class="game-card-team-name-header">
+                      <span class="team1color livecells1">100</span>
+                    </h6>
+                  </td>
+                </tr>
+              </table>
+            </div>
 
-  <div id="row-maps" class="row">
+            <div class="game-card-team2 finished-game-card-team2">
+              <table width="100%">
+                <tr>
+                  <td> 
+                    <h6 class="game-card-team-name-header">
+                      <span class="team2color team2name">Team 2</span> <small><span class="team2color team2record">(W-L)</span></small>
+                    </h6>
+                  </td>
+                  <td align="right">
+                    <h6 class="game-card-team-name-header">
+                      <span class="team2color livecells2">2</span>
+                    </h6>
+                  </td>
+                </tr>
+              </table>
+            </div>
 
-    <div class="col-md-3 map-card-container">
+            <div class="game-card-map finished-game-card-map">
+              Map: <span class="map-name">Map Name</span>
+            </div>
 
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Hellmouth Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/hellmouthcup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://hellmouth.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            hellmouth.golly.life
-          </a>
-        </div>
+            <div class="game-card-map finished-game-card-map">
+              <span class="generations-number"></span> Generations
+            </div>
+
+            <div class="game-card-map finished-game-card-simulate">
+              <a href="#" style="margin-top: 20px;" role="button" class="simulate btn btn-primary btn-sm btn-success">View Simulation</a>
+            </div>
+          </div>
+        </div></template>
+
+<template id="season-day-container-template">
+  <div class="season-day-container">
+    <div class="row text-center season-day-header">
+      <div class="col-md-12">
+          <a class="season-day-anchor"></a>
+          <h2>Day <span class="season-day"></span></h2>
+      </div>
+    </div>
+
+    <div class="row season-day-body">
+
+      <div class="col-md-6 league-container season-league-container league-1-container">
+        <h4 class="text-center league-container-header league-1-header"><span class="league-1-name"></span></h4>
+      </div>
+
+      <div class="col-md-6 league-container season-league-container league-2-container">
+        <h4 class="text-center league-container-header league-2-header"><span class="league-2-name"></span></h4>
       </div>
 
     </div>
-    <div class="col-md-3 map-card-container">
+  </div></template>
 
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Pseudo Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/pseudocup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://pseudo.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            pseudo.golly.life
-          </a>
-        </div>
-      </div>
 
+<div class="container invisible" id="season-header-container">
+
+  <h2 class="text-center season-header">Hellmouth Cup Games</h2>
+
+  <div class="row text-center notify-header invisible loading-message" id="mode1019-loading-message">
+    <div class="col-md-12">
+      <h4 class="text-success">The site is currently loading...</h4>
     </div>
-    <div class="col-md-3 map-card-container">
+  </div>
 
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Toroidal Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/toroidalcup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://toroidal.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            toroidal.golly.life
-          </a>
-        </div>
-      </div>
+</div>
 
+
+<div class="container invisible" id="day-buttons-container">
+
+  <p class="text-center lead">Jump to day:</p>
+
+</div>
+
+
+<div class="container invisible" id="season-days-container">
+</div>
+
+
+<div class="container invisible" id="container-season-waiting">
+
+  <div class="row text-center notify-header">
+    <div class="col-md-12">
+        <h4 class="text-success">The season will begin soon...</h4>
     </div>
+  </div>
 
+</div>
+
+
+<div class="container invisible" id="container-error">
+
+  <div class="row text-center notify-header">
+    <div class="col-md-12">
+      <h2 class="text-danger">The site has experienced a technical glitch.</h2>
+    </div>
+  </div>
+
+  <div class="row text-center notify-body">
+    <div class="col-md-12">
+      <p>
+      Ninjas have been dispatched to track down those responsible for the downtime
+      and bring them back to Hellmouth Community College to fix the site.
+      </p>
+    </div>
   </div>
 
 </div>
@@ -232,6 +304,7 @@ var mapsApiUrl = 'https://maps.golly.life';
 <script type="text/javascript" src="https://hellmouth.golly.life/theme/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://hellmouth.golly.life/theme/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="https://hellmouth.golly.life/theme/js/jquery-svg.js"></script>
+<script type="text/javascript" src="season.js"></script>
 
 <footer id="contentinfo" class="body">
     <div class="text-center">

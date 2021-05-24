@@ -158,62 +158,65 @@ var mapsApiUrl = 'https://maps.golly.life';
 </div>
 
 
-<div class="container" id="container-maps">
-
-  <div id="row-maps" class="row">
-
+<template id="map-card-template">
     <div class="col-md-3 map-card-container">
-
       <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Hellmouth Cup</span></div>
+        <div class="card-header map-card-header"><span class="map-card-map-name"></span><br />
+        <span class="invisible badge badge-info map-badge-season"></span>
+        <span class="invisible badge badge-warning map-badge-new">NEW</span>
+        <span class="invisible badge badge-warning map-badge-retired">RETIRED</span>
+        </div>
         <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/hellmouthcup.png" />
+          <img class="map-card-image" width="100%" src="" />
           <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
         </div>
         <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://hellmouth.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            hellmouth.golly.life
-          </a>
+          <a href="#" role="button" class="simulate btn btn-primary btn-sm btn-success">Sandbox</a>
         </div>
       </div>
+    </div></template>
 
+
+<div class="container" id="container-maps-header">
+
+  <h2 class="season-header text-center">Golly Maps</h2>
+
+  <div class="row text-center notify-header invisible loading-message" id="maps-loading-message">
+    <div class="col-md-12">
+      <h4 class="text-success">The site is currently loading...</h4>
     </div>
-    <div class="col-md-3 map-card-container">
-
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Pseudo Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/pseudocup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://pseudo.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            pseudo.golly.life
-          </a>
-        </div>
-      </div>
-
-    </div>
-    <div class="col-md-3 map-card-container">
-
-      <div class="card text-white bg-primary mb-3 map-card">
-        <div class="card-header map-card-header"><span class="map-card-map-name">Toroidal Cup</span></div>
-        <div class="card-body">
-          <img class="map-card-image" width="100%" src="img/toroidalcup.png" />
-          <p class="card-text map-card-description-text"><span class="map-card-description"></span></p>
-        </div>
-        <div class="map-card-simulate justify-content-lg-center text-center">
-          <a href="https://toroidal.golly.life" role="button" class="btn btn-primary btn-sm btn-success">
-            toroidal.golly.life
-          </a>
-        </div>
-      </div>
-
-    </div>
-
   </div>
 
 </div>
+
+
+<div class="container invisible" id="container-maps">
+
+  <div class="row" id="row-maps">
+  </div>
+
+</div>
+
+
+<div class="container invisible" id="container-error">
+
+    <div class="row text-center notify-header">
+      <div class="col-md-12">
+        <h2 class="text-danger">The site has experienced a technical glitch.</h2>
+      </div>
+    </div>
+
+    <div class="row text-center notify-body">
+      <div class="col-md-12">
+        <p>
+        Ninjas have been dispatched to track down those responsible for the downtime
+        and bring them back to Hellmouth Community College to fix the site.
+        </p>
+      </div>
+    </div>
+
+</div>
+
 
 <noscript>
   <div class="container" id="container-noscript">
@@ -232,6 +235,7 @@ var mapsApiUrl = 'https://maps.golly.life';
 <script type="text/javascript" src="https://hellmouth.golly.life/theme/js/jquery.min.js"></script>
 <script type="text/javascript" src="https://hellmouth.golly.life/theme/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" src="https://hellmouth.golly.life/theme/js/jquery-svg.js"></script>
+<script type="text/javascript" src="maps.js"></script>
 
 <footer id="contentinfo" class="body">
     <div class="text-center">
